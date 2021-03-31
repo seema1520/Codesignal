@@ -1,0 +1,28 @@
+<?php
+function firstDuplicate($a) {
+     $b = [];
+    $counts = array_count_values($a);
+    foreach($counts as $num => $duplication) {
+        if($duplication > 1) {
+            $b[] = $num;
+        }
+    }
+    foreach($a as $value) {
+        if(in_array($value, $b)) {
+            $detector[] = $value;
+            $counter = 0;
+            foreach($detector as $item) {
+                if($item == $value) {
+                    $counter++;
+                    if($counter >= 2) {
+                        return $value;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
+
+?>
